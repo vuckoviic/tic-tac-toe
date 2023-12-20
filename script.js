@@ -84,7 +84,7 @@ function GameController(playerOneName, playerTwoName) {
     return { playRound, getActivePlayer };
 }
 
-const insertPlayerNames = function() {
+const insertPlayerNames = (function() {
     let playerOneName = prompt("Player One! Enter your nickname:");
     let playerTwoName = prompt("Player Two! Enter your nickname:");
 
@@ -96,4 +96,4 @@ const insertPlayerNames = function() {
     }
 
     return { getPlayerNames }
-}
+})();
