@@ -26,3 +26,23 @@ function Gameboard() {
 
     return { getBoard, drawToken, printBoard };
 }
+
+function Cell() {
+    let value = "";
+
+    const addToken = function (player) {
+        if (player == 1) {
+            value = "X";
+        }
+
+        else {
+            value = "O";
+        }
+    }
+
+    const getValue = function () {
+        return value;
+    }
+
+    return { addToken, getValue };
+}
