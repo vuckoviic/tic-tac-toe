@@ -46,3 +46,40 @@ function Cell() {
 
     return { addToken, getValue };
 }
+
+function GameController(playerOneName, playerTwoName) {
+    const board = Gameboard();
+
+    const players = [
+        {
+            name: playerOneName,
+            token: "X"
+        },
+
+        {
+            name: playerTwoName,
+            token: "O"
+        }
+    ];
+
+    let activePlayer = players[0];
+
+    const swhitchPlayerTurn = function() {
+        if (activePlayer === players[0]) {
+            activePlayer = players[1];
+        }
+        else {
+            activePlayer = players[0];
+        }
+    }
+    
+    const getActivePlayer = function (){
+        return activePlayer;
+    }
+
+    const playRound = function(row, column) {
+        board.drawToken(row, column, getActivePlayer().token);
+    }
+
+    return { playRound, getActivePlayer };
+}
