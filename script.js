@@ -1,4 +1,4 @@
-function Gameboard() {
+(function Gameboard() {
     const rows = 3;
     const columns = 3;
     const board = [];
@@ -25,7 +25,7 @@ function Gameboard() {
     };
 
     return { getBoard, drawToken, printBoard };
-}
+})();
 
 function Cell() {
     let value = "";
@@ -82,4 +82,18 @@ function GameController(playerOneName, playerTwoName) {
     }
 
     return { playRound, getActivePlayer };
+}
+
+const insertPlayerNames = function() {
+    let playerOneName = prompt("Player One! Enter your nickname:");
+    let playerTwoName = prompt("Player Two! Enter your nickname:");
+
+    const getPlayerNames = function() {
+        return {
+            playerOneName,
+            playerTwoName
+        }
+    }
+
+    return { getPlayerNames }
 }
