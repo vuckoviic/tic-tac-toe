@@ -1,4 +1,4 @@
-Gameboard = function() {
+Gameboard = (function() {
     let board = [];
 
     drawToken = function(row, column, player) {
@@ -15,5 +15,4 @@ Gameboard = function() {
         drawToken,
         getBoard
     }
-}
-
+})()
