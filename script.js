@@ -43,8 +43,32 @@ const Player = function() {
         return getPlayerName
     }
 
+    let player1sign;
+
     const chooseSign = function() {
-        players[0].sign = prompt(`${players[0].name} choose your sign: `);
+
+        player1sign = prompt(`${players[0].name} choose your sign: `);
+        
+        if (player1sign === "X" || player1sign === "O" || player1sign === "x" || player1sign === "o") {
+            players[0].sign = player1sign;
+            players[0].sign = players[0].sign.toUpperCase();
+        }
+
+        else {
+            checkSign();
+        }
+
+        if (players[0].sign === "X" || players[0].sign === "x") {
+            players[1].sign = "O";
+        }
+        else if (players[0].sign === "O" || players[0].sign === "o"){
+            players[1].sign = "X";
+        }
+
+        function checkSign() {
+            alert("ERROR! Invalid input! Try again:");
+            chooseSign();
+        }
 
         function getPlayerSign(player) {
             if (player === 1) {
@@ -66,5 +90,13 @@ const Player = function() {
 const play = Player();
 
 const insertingNames = play.insertPlayerNames();
-const getNames = insertingNames(1);
-console.log(getNames);
+const getName1 = insertingNames(1);
+const getName2 = insertingNames(2);
+console.log(`Player 1 is ${getName1}`);
+console.log(`Player 2 is ${getName2}`);
+
+const setSign = play.chooseSign();
+const getSign1 = setSign(1);
+const getSign2 = setSign(2);
+console.log(`${getName1} has a sign ${getSign1}`);
+console.log(`${getName2} has a sign ${getSign2}`);
