@@ -1,5 +1,5 @@
 const Gameboard = (function() {
-    let board = ["aleksa", "magarac"];
+    let board = ["aleksa", "magarac"]; // change this
 
     const drawSign = function(row, column, player) {
         // method takes row, column and player. 
@@ -81,9 +81,24 @@ const Player = function() {
         return getPlayerSign
     }
 
+    let activePlayer;
+
+    const setActivePlayer = function() {
+        for (let i = 0; i < players.length; i++) {
+            if (players[i].sign === "X") {
+                activePlayer = players[i];
+            }
+        }
+        const getActivePlayer = function() {
+            return activePlayer;
+        }
+        return getActivePlayer
+    }
+
     return {
         insertPlayerNames,
-        chooseSign
+        chooseSign,
+        setActivePlayer
     }
 }
 
@@ -100,3 +115,7 @@ const getSign1 = setSign(1);
 const getSign2 = setSign(2);
 console.log(`${getName1} has a sign ${getSign1}`);
 console.log(`${getName2} has a sign ${getSign2}`);
+
+const settingActivePlayer = play.setActivePlayer();
+const getActivePlayer = settingActivePlayer();
+console.log(`Active player is ${getActivePlayer.name}`);
