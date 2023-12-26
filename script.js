@@ -17,6 +17,19 @@ const Gameboard = (function() {
     }
 })();
 
+const Game = function() {
+    
+    const playRound = function(activePlayer) {
+        console.log(`${activePlayer.name}'s turn. He / she is controlling ${activePlayer.sign}`);
+        drawingSignRow = prompt("Insert table row: ");
+        drawingSignColumn = prompt("Insert table column: ");
+        drawSign(drawingSignRow, drawingSignColumn, activePlayer.sign)
+    }
+    
+    return playRound
+}
+
+
 const Player = function() {
 
     const players = [];
