@@ -102,20 +102,20 @@ const Player = function() {
     }
 }
 
-const play = Player();
+const player = Player();
 
-const insertingNames = play.insertPlayerNames();
+const insertingNames = player.insertPlayerNames();
 const getName1 = insertingNames(1);
 const getName2 = insertingNames(2);
 console.log(`Player 1 is ${getName1}`);
 console.log(`Player 2 is ${getName2}`);
 
-const setSign = play.chooseSign();
+const setSign = player.chooseSign();
 const getSign1 = setSign(1);
 const getSign2 = setSign(2);
 console.log(`${getName1} has a sign ${getSign1}`);
 console.log(`${getName2} has a sign ${getSign2}`);
 
-const settingActivePlayer = play.setActivePlayer();
+const settingActivePlayer = player.setActivePlayer();
 const getActivePlayer = settingActivePlayer();
 console.log(`Active player is ${getActivePlayer.name}`);
