@@ -22,11 +22,27 @@ const Game = function() {
     const playRound = function(activePlayer) {
         console.log(`${activePlayer.name}'s turn. He / she is controlling ${activePlayer.sign}`);
         drawingSignRow = prompt("Insert table row: ");
+        drawingSignRow = parseInt(drawingSignRow);
+        
+        // fix ifs later (they don't work correctly)
+
+        // if (drawingSignRow === "NaN" && drawingSignRow > 3) {
+        //     drawingSignRow = alert("ERROR! Invalid input. Try again:");
+        //     playRound(activePlayer);
+        // }
+        
         drawingSignColumn = prompt("Insert table column: ");
-        drawSign(drawingSignRow, drawingSignColumn, activePlayer.sign)
+        drawingSignColumn = parseInt(drawingSignColumn);
+
+        // if (drawingSignColumn === "NaN" && drawingSignColumn > 3) {
+        //     drawingSignColumn = alert("ERROR! Invalid input. Try again:");
+        //     playRound(activePlayer);
+        // }
+        
+        drawSign(drawingSignRow, drawingSignColumn, activePlayer.sign);
     }
     
-    return playRound
+    return { playRound }
 }
 
 
@@ -132,3 +148,6 @@ console.log(`${getName2} has a sign ${getSign2}`);
 const settingActivePlayer = player.setActivePlayer();
 const getActivePlayer = settingActivePlayer();
 console.log(`Active player is ${getActivePlayer.name}`);
+
+const game = Game();
+const playRound = game.playRound(getActivePlayer);
