@@ -1,25 +1,16 @@
 const Gameboard = (function() {
-    let board = ["aleksa", "magarac"]; // change this
+    let board = [];
+    const rows = 3;
+    const columns = 3
 
-    const drawSign = function(row, column, player) {
-        // method takes row, column and player. 
-        // From player object it finds player's sign
-        // and calculates positions relying on row and column
+    for (let i = 0; i < rows; i++) {
+        board[i] = [];
+        for (let j = 0; j < columns; j++) {
+          board[i].push({taken: false, sign: ""});
+        }
     }
 
-    const getBoard = function() {
-        return board;
-    }
-
-    return {
-        drawSign,
-        getBoard
-    }
-})();
-
-const Game = function() {
-    
-    const playRound = function(activePlayer) {
+    const drawSign = function(activePlayer) {
         console.log(`${activePlayer.name}'s turn. He / she is controlling ${activePlayer.sign}`);
         drawingSignRow = prompt("Insert table row: ");
         drawingSignRow = parseInt(drawingSignRow);
@@ -38,11 +29,39 @@ const Game = function() {
         //     drawingSignColumn = alert("ERROR! Invalid input. Try again:");
         //     playRound(activePlayer);
         // }
+
+        board[drawingSignRow][drawingSignColumn].taken = true;
+        board[drawingSignRow][drawingSignColumn].sign = activePlayer.sign;
         
-        drawSign(drawingSignRow, drawingSignColumn, activePlayer.sign);
+    }
+
+    const getBoard = function() {
+        return board;
+    }
+
+    return {
+        drawSign,
+        getBoard
+    }
+})();
+
+const GameController = function() {
+    
+    const { insertPlayerNames, chooseSign, setActivePlayer } = Player();
+
+    const getPlayerName = insertPlayerNames;
+    const getActivePlayer = setActivePlayer;
+
+    const playRound = function(activePlayer) {
+        drawSign(activePlayer.sign);
     }
     
-    return { playRound }
+    return { 
+        playRound,
+        insertPlayerNames,
+        chooseSign,
+        setActivePlayer
+    }
 }
 
 
@@ -58,15 +77,16 @@ const Player = function() {
 
         players.push(player1);
         players.push(player2);
-
+    
         const getPlayerName = function(player) {
             if (player === 1) {
+                console.log(`Player 1 is ${players[0].name}`);
                 return players[0].name;
             }
             else if(player === 2) {
+                console.log(`Player 2 is ${players[1].name}`);
                 return players[1].name;
             }
-            console.log("WORKING!");
         }
 
         return getPlayerName
@@ -94,9 +114,21 @@ const Player = function() {
             players[1].sign = "X";
         }
 
+        console.log(`${getPlayerName(1)} has a sign ${getPlayerSign(1)}`);
+        console.log(`${getPlayerName(2)} has a sign ${getPlayerSign(2)}`);
+
         function checkSign() {
             alert("ERROR! Invalid input! Try again:");
             chooseSign();
+        }
+
+        function getPlayerName(player) {
+            if (player === 1) {
+                return players[0].name;
+            }
+            else if (player === 2){
+                return players[1].name;
+            }            
         }
 
         function getPlayerSign(player) {
@@ -119,6 +151,7 @@ const Player = function() {
             }
         }
         const getActivePlayer = function() {
+            console.log(`Active player is ${activePlayer.name}`);
             return activePlayer;
         }
         return getActivePlayer
@@ -131,23 +164,12 @@ const Player = function() {
     }
 }
 
-const player = Player();
-
-const insertingNames = player.insertPlayerNames();
-const getName1 = insertingNames(1);
-const getName2 = insertingNames(2);
-console.log(`Player 1 is ${getName1}`);
-console.log(`Player 2 is ${getName2}`);
-
-const setSign = player.chooseSign();
-const getSign1 = setSign(1);
-const getSign2 = setSign(2);
-console.log(`${getName1} has a sign ${getSign1}`);
-console.log(`${getName2} has a sign ${getSign2}`);
-
-const settingActivePlayer = player.setActivePlayer();
-const getActivePlayer = settingActivePlayer();
-console.log(`Active player is ${getActivePlayer.name}`);
-
-const game = Game();
-const playRound = game.playRound(getActivePlayer);
+const game = GameController();
+const gettingPlayerName = game.insertPlayerNames();
+gettingPlayerName(1);
+gettingPlayerName(2);
+game.chooseSign();
+game.setActivePlayer();
+const gettingActivePlayer = game.setActivePlayer();
+gettingActivePlayer();
+game.playRound()
