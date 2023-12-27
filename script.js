@@ -12,7 +12,7 @@ const Gameboard = (function() {
 
     const drawSign = function(activePlayer) {
         console.log(`${activePlayer.name}'s turn. He / she is controlling ${activePlayer.sign}`);
-        drawingSignRow = prompt("Insert table row: ");
+        drawingSignRow = prompt(`${activePlayer.name} please insert table row:`);
         drawingSignRow = parseInt(drawingSignRow);
         
         // fix ifs later (they don't work correctly)
@@ -22,7 +22,7 @@ const Gameboard = (function() {
         //     playRound(activePlayer);
         // }
         
-        drawingSignColumn = prompt("Insert table column: ");
+        drawingSignColumn = prompt(`${activePlayer.name} please insert table column: `);
         drawingSignColumn = parseInt(drawingSignColumn);
 
         // if (drawingSignColumn === "NaN" && drawingSignColumn > 3) {
@@ -30,9 +30,9 @@ const Gameboard = (function() {
         //     playRound(activePlayer);
         // }
 
-        board[drawingSignRow][drawingSignColumn].taken = true;
-        board[drawingSignRow][drawingSignColumn].sign = activePlayer.sign;
-        
+        board[drawingSignRow-1][drawingSignColumn-1] = activePlayer.sign;
+        board[drawingSignRow-1][drawingSignColumn-1].taken = true;
+        board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign;    
     }
 
     const getBoard = function() {
@@ -49,18 +49,23 @@ const GameController = function() {
     
     const { insertPlayerNames, chooseSign, setActivePlayer } = Player();
 
+    const { drawSign, getBoard } = Gameboard;
+
     const getPlayerName = insertPlayerNames;
     const getActivePlayer = setActivePlayer;
 
-    const playRound = function(activePlayer) {
-        drawSign(activePlayer.sign);
+    const playRound = function() {
+        let activePlayer = getActivePlayer()
+        drawSign(activePlayer());
     }
     
     return { 
         playRound,
         insertPlayerNames,
         chooseSign,
-        setActivePlayer
+        setActivePlayer,
+        drawSign,
+        getBoard
     }
 }
 
@@ -173,3 +178,4 @@ game.setActivePlayer();
 const gettingActivePlayer = game.setActivePlayer();
 gettingActivePlayer();
 game.playRound()
+console.log(game.getBoard());
