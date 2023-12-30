@@ -62,21 +62,20 @@ const Gameboard = (function() {
 
 const GameController = function() {
     
-    const { insertPlayerNames, chooseSign, setActivePlayer } = Player();
+    const { insertPlayerNames, chooseSign, setActivePlayer, getActivePlayer, changeActivePlayer } = Player();
 
     const { drawSign, getBoard } = Gameboard;
 
-    const getPlayerName = insertPlayerNames;
-    const getActivePlayer = setActivePlayer;
-
     const playRound = function() {
-        let activePlayer = getActivePlayer()
-        drawSign(activePlayer());
+        let activePlayer = getActivePlayer();
+        drawSign(activePlayer);
+        activePlayer = changeActivePlayer();
     }
     
     return { 
         playRound,
         insertPlayerNames,
+        getActivePlayer,
         chooseSign,
         setActivePlayer,
         drawSign,
@@ -170,17 +169,32 @@ const Player = function() {
                 activePlayer = players[i];
             }
         }
-        const getActivePlayer = function() {
-            console.log(`Active player is ${activePlayer.name}`);
-            return activePlayer;
+        return activePlayer;
+    }
+
+    const getActivePlayer = function() {
+        console.log(`Active player is ${activePlayer.name}`);
+        return activePlayer;
+    }
+
+    const changeActivePlayer = function() {
+        console.log(`Change active player method is run. Active player is: ${activePlayer.name}`);
+        if (activePlayer === players[0]) {
+            activePlayer = players[1];
         }
-        return getActivePlayer
+        else {
+            activePlayer = players[0];
+        }
+        console.log(`Changed active player! Active player now is: ${activePlayer.name}`);
+        return activePlayer;
     }
 
     return {
         insertPlayerNames,
         chooseSign,
-        setActivePlayer
+        setActivePlayer,
+        getActivePlayer,
+        changeActivePlayer
     }
 }
 
@@ -190,7 +204,8 @@ gettingPlayerName(1);
 gettingPlayerName(2);
 game.chooseSign();
 game.setActivePlayer();
-const gettingActivePlayer = game.setActivePlayer();
-gettingActivePlayer();
-game.playRound()
+game.getActivePlayer();
+game.playRound();
+console.log(game.getBoard());
+game.playRound();
 console.log(game.getBoard());
