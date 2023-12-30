@@ -178,14 +178,13 @@ const Player = function() {
     }
 
     const changeActivePlayer = function() {
-        console.log(`Change active player method is run. Active player is: ${activePlayer.name}`);
         if (activePlayer === players[0]) {
             activePlayer = players[1];
         }
         else {
             activePlayer = players[0];
         }
-        console.log(`Changed active player! Active player now is: ${activePlayer.name}`);
+        game.playRound();
         return activePlayer;
     }
 
