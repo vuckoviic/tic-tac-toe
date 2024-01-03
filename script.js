@@ -41,34 +41,54 @@ const Gameboard = (function() {
         //     board[drawingSignRow-1][drawingSignColumn-1] = O;
         // }
         
-        board[drawingSignRow-1][drawingSignColumn-1] = activePlayer.sign;
+        // board[drawingSignRow-1][drawingSignColumn-1] = activePlayer.sign;
         board[drawingSignRow-1][drawingSignColumn-1].taken = true;
         board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
         
         console.log(typeof(board[drawingSignRow-1][drawingSignColumn-1]));
         console.log(board[drawingSignRow-1][drawingSignColumn-1].taken);
         console.log(board[drawingSignRow-1][drawingSignColumn-1].sign);   
+        console.log(getBoard());
     }
 
     const getBoard = function() {
         return board;
     }
 
+    const checkForEnd = function() {
+
+        for (let i = 0; i < board.length; i++) {
+            
+            if (board[i][i].taken === false) {
+                console.log("Query not acceptable.")
+                break;
+            }
+
+            else if (board.length - 1 === i) {
+                console.log("Query is acceptable! GAME OVER!!!");
+            }
+        }
+    }
+
     return {
         drawSign,
-        getBoard
+        getBoard,
+        checkForEnd
     }
+
 })();
 
 const GameController = function() {
     
     const { insertPlayerNames, chooseSign, setActivePlayer, getActivePlayer, changeActivePlayer } = Player();
 
-    const { drawSign, getBoard } = Gameboard;
+    const { drawSign, getBoard, checkForEnd } = Gameboard;
 
     const playRound = function() {
         let activePlayer = getActivePlayer();
         drawSign(activePlayer);
+        checkForEnd();
+        console.log(checkForEnd());
         activePlayer = changeActivePlayer();
     }
     
@@ -79,7 +99,8 @@ const GameController = function() {
         chooseSign,
         setActivePlayer,
         drawSign,
-        getBoard
+        getBoard,
+        checkForEnd
     }
 }
 
@@ -204,7 +225,5 @@ gettingPlayerName(2);
 game.chooseSign();
 game.setActivePlayer();
 game.getActivePlayer();
-game.playRound();
-console.log(game.getBoard());
 game.playRound();
 console.log(game.getBoard());
