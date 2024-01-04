@@ -57,17 +57,24 @@ const Gameboard = (function() {
 
     const checkForEnd = function() {
 
-        for (let i = 0; i < board.length; i++) {
-            
-            if (board[i][i].taken === false) {
-                console.log("Query not acceptable.")
+        for (let i = 0; i < rows; i++) {
+            for (var k = 0; k < columns; k++) {
+                if (board[i][k].taken === false) {
+                    console.log("Query not acceptable.");
+                }
+            }
+            k -= 1;
+            if (board[i][k].taken === false) {
+                console.log("Query not acceptable.");
                 break;
             }
-
-            else if (board.length - 1 === i) {
+            else if (rows - 1 === i) {
                 console.log("Query is acceptable! GAME OVER!!!");
+                return true;
             }
         }
+        
+        console.log(getBoard());
     }
 
     return {
@@ -205,7 +212,12 @@ const Player = function() {
         else {
             activePlayer = players[0];
         }
-        game.playRound();
+        if (game.checkForEnd() === true) {
+            console.log("GAME OVER!!! NOT STARTING ANOTHER ROUND!")
+        }
+        else {
+            game.playRound();
+        }
         return activePlayer;
     }
 
