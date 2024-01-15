@@ -58,22 +58,35 @@ const Gameboard = (function() {
     const checkForEnd = function() {
 
         for (let i = 0; i < rows; i++) {
-            for (var k = 0; k < columns; k++) {
+
+            rowIncomplete = false;
+
+            for (var k = 0; k < columns; k++) { 
                 if (board[i][k].taken === false) {
-                    console.log("Query not acceptable.");
+                    console.log("Query not accepted. This cell is not taken.");
+                    rowIncomplete = true;
+                    break;
+                }
+                else if (board[i][k].taken === true) {
+                    console.log("This cell is taken. Continueing...");
+                    // continue;
                 }
             }
-            k -= 1;
-            if (board[i][k].taken === false) {
-                console.log("Query not acceptable.");
+
+            console.log(`i is now: ${i}`);
+            console.log(`k is now: ${k}`);
+
+            if (rowIncomplete) {
+                console.log("Query not accepted. This row has some cells not taken.");
                 break;
             }
-            else if (rows - 1 === i) {
-                console.log("Query is acceptable! GAME OVER!!!");
+            
+            if (i == rows - 1) {
+                console.log("GAME OVER! ALL CELLS ARE TAKEN!");
                 return true;
             }
         }
-        
+
         console.log(getBoard());
     }
 
