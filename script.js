@@ -88,35 +88,35 @@ const Gameboard = (function() {
         }
 
         if (board[0][0].sign === board[0][1].sign && board[0][0].sign === board[0][2].sign && board[0][0].sign !== "") {
-            return true;
+            return board[0][0].sign;
         }
 
         else if (board[1][0].sign === board[1][1].sign && board[1][0].sign === board[1][2].sign && board[1][0].sign !== "") {
-            return true;
+            return board[1][0].sign;
         }
 
         else if (board[2][0].sign === board[2][1].sign && board[2][0].sign === board[2][2].sign && board[2][0].sign !== "") {
-            return true;
+            return board[2][0].sign;
         }
 
         if (board[0][0].sign === board[1][0].sign && board[0][0].sign === board[2][0].sign && board[0][0].sign !== "") {
-            return true;
+            return board[0][0].sign;
         }
         
         else if (board[0][1].sign === board[1][1].sign && board[0][1].sign === board[2][1].sign && board[0][1].sign !== "") {
-            return true;
+            return board[0][1].sign;
         }
 
         else if (board[0][2].sign === board[1][2].sign && board[0][2].sign === board[2][2].sign && board[0][2].sign !== "") {
-            return true;
+            return board[0][2].sign;
         }
 
         if (board[0][0].sign === board[1][1].sign && board[0][0].sign === board[2][2].sign && board[0][0].sign !== "") {
-            return true;
+            return board[0][0].sign;
         }
 
         else if (board[0][2].sign === board[1][1].sign && board[0][2].sign === board[2][0].sign && board[0][2].sign !== "") {
-            return true;
+            return board[0][2].sign;
         }
     }
 
@@ -264,8 +264,21 @@ const Player = function() {
             console.log("GAME OVER!!! NOT STARTING ANOTHER ROUND!")
         }
         
-        else if (game.checkForWinner() === true) {
-            console.log("We have a winner! Game over!!!")
+        else if (game.checkForWinner() === "X" || game.checkForWinner() === "O") {
+            
+            console.log("We have a winner! Game over!!!");
+            
+            let winner;
+            
+            if (game.checkForWinner() === "X") {
+                winner = players[0];
+            }
+            
+            else {
+                winner = players[1];
+            }
+        
+            console.log(`Winner is ${winner.name}`);
         }
 
         else {
