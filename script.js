@@ -270,15 +270,13 @@ const Player = function() {
             
             let winner;
             
-            if (game.checkForWinner() === "X") {
-                winner = players[0];
-            }
-            
-            else {
-                winner = players[1];
+            for (let i = 0; i < players.length; i++) {
+                if (players[i].sign === game.checkForWinner()) {
+                    winner = players[i];
+                }
             }
         
-            console.log(`Winner is ${winner.name}`);
+            console.log(`Winner is ${winner.name}. His sign is ${game.checkForWinner()}`);
         }
 
         else {
