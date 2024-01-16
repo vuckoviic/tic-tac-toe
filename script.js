@@ -15,40 +15,22 @@ const Gameboard = (function() {
         drawingSignRow = prompt(`${activePlayer.name} please insert table row:`);
         drawingSignRow = parseInt(drawingSignRow);
         
-        // fix ifs later (they don't work correctly)
-
-        // if (drawingSignRow === "NaN" && drawingSignRow > 3) {
-        //     drawingSignRow = alert("ERROR! Invalid input. Try again:");
-        //     playRound(activePlayer);
-        // }
-        
         drawingSignColumn = prompt(`${activePlayer.name} please insert table column: `);
         drawingSignColumn = parseInt(drawingSignColumn);
 
-        // if (drawingSignColumn === "NaN" && drawingSignColumn > 3) {
-        //     drawingSignColumn = alert("ERROR! Invalid input. Try again:");
-        //     playRound(activePlayer);
-        // }
-
-
-        // if (activePlayer.sign === "X") {
-        //     let X = {};
-        //     board[drawingSignRow-1][drawingSignColumn-1] = X;
-        //     console.log(X);
-        // }
-        // else {
-        //     let O = {};
-        //     board[drawingSignRow-1][drawingSignColumn-1] = O;
-        // }
-        
-        // board[drawingSignRow-1][drawingSignColumn-1] = activePlayer.sign;
-        board[drawingSignRow-1][drawingSignColumn-1].taken = true;
-        board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
-        
-        console.log(typeof(board[drawingSignRow-1][drawingSignColumn-1]));
-        console.log(board[drawingSignRow-1][drawingSignColumn-1].taken);
-        console.log(board[drawingSignRow-1][drawingSignColumn-1].sign);   
-        console.log(getBoard());
+        if (board[drawingSignRow-1][drawingSignColumn-1].taken === true) {
+            alert("That field is already taken! Try again:");
+            drawSign(activePlayer);
+        }
+        else {
+            board[drawingSignRow-1][drawingSignColumn-1].taken = true;
+            board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
+            
+            console.log(typeof(board[drawingSignRow-1][drawingSignColumn-1]));
+            console.log(board[drawingSignRow-1][drawingSignColumn-1].taken);
+            console.log(board[drawingSignRow-1][drawingSignColumn-1].sign);   
+            console.log(getBoard());
+        }
     }
 
     const getBoard = function() {
