@@ -261,7 +261,7 @@ const Player = function() {
         }
         
         if (game.checkForEnd() === true) {
-            console.log("GAME OVER!!! NOT STARTING ANOTHER ROUND!")
+            console.log("It's a tie!");
         }
         
         else if (game.checkForWinner() === "X" || game.checkForWinner() === "O") {
