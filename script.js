@@ -22,6 +22,7 @@ const Gameboard = (function() {
             alert("That field is already taken! Try again:");
             drawSign(activePlayer);
         }
+        
         else {
             board[drawingSignRow-1][drawingSignColumn-1].taken = true;
             board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
@@ -72,10 +73,58 @@ const Gameboard = (function() {
         console.log(getBoard());
     }
 
+    const checkForWinner = function() {
+        
+        for (let i = 0; i < columns; i++) {
+            console.log(`Cell 1${i + 1} has a sign of ${board[0][i].sign}`);
+        }
+        
+        for (let i = 0; i < columns; i++) {
+            console.log(`Cell 2${i + 1} has a sign of ${board[1][i].sign}`);
+        }
+        
+        for (let i = 0; i < columns; i++) {
+            console.log(`Cell 3${i + 1} has a sign of ${board[2][i].sign}`);
+        }
+
+        if (board[0][0].sign === board[0][1].sign && board[0][0].sign === board[0][2].sign && board[0][0].sign !== "") {
+            return true;
+        }
+
+        else if (board[1][0].sign === board[1][1].sign && board[1][0].sign === board[1][2].sign && board[1][0].sign !== "") {
+            return true;
+        }
+
+        else if (board[2][0].sign === board[2][1].sign && board[2][0].sign === board[2][2].sign && board[2][0].sign !== "") {
+            return true;
+        }
+
+        if (board[0][0].sign === board[1][0].sign && board[0][0].sign === board[2][0].sign && board[0][0].sign !== "") {
+            return true;
+        }
+        
+        else if (board[0][1].sign === board[1][1].sign && board[0][1].sign === board[2][1].sign && board[0][1].sign !== "") {
+            return true;
+        }
+
+        else if (board[0][2].sign === board[1][2].sign && board[0][2].sign === board[2][2].sign && board[0][2].sign !== "") {
+            return true;
+        }
+
+        if (board[0][0].sign === board[1][1].sign && board[0][0].sign === board[2][2].sign && board[0][0].sign !== "") {
+            return true;
+        }
+
+        else if (board[0][2].sign === board[1][1].sign && board[0][2].sign === board[2][0].sign && board[0][2].sign !== "") {
+            return true;
+        }
+    }
+
     return {
         drawSign,
         getBoard,
-        checkForEnd
+        checkForEnd,
+        checkForWinner
     }
 
 })();
@@ -84,7 +133,7 @@ const GameController = function() {
     
     const { insertPlayerNames, chooseSign, setActivePlayer, getActivePlayer, changeActivePlayer } = Player();
 
-    const { drawSign, getBoard, checkForEnd } = Gameboard;
+    const { drawSign, getBoard, checkForEnd, checkForWinner } = Gameboard;
 
     const playRound = function() {
         let activePlayer = getActivePlayer();
@@ -102,7 +151,8 @@ const GameController = function() {
         setActivePlayer,
         drawSign,
         getBoard,
-        checkForEnd
+        checkForEnd,
+        checkForWinner
     }
 }
 
@@ -135,7 +185,7 @@ const Player = function() {
     }
 
     let player1sign;
-
+   
     const chooseSign = function() {
 
         player1sign = prompt(`${players[0].name} choose your sign: `);
@@ -201,18 +251,27 @@ const Player = function() {
     }
 
     const changeActivePlayer = function() {
+        
         if (activePlayer === players[0]) {
             activePlayer = players[1];
         }
+        
         else {
             activePlayer = players[0];
         }
+        
         if (game.checkForEnd() === true) {
             console.log("GAME OVER!!! NOT STARTING ANOTHER ROUND!")
         }
+        
+        else if (game.checkForWinner() === true) {
+            console.log("We have a winner! Game over!!!")
+        }
+
         else {
             game.playRound();
         }
+        
         return activePlayer;
     }
 
