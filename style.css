@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', cursive;
+}
+
+.container {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+.heading {
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ttt {
+    font-size: 7em;
+    color: rgb(78, 101, 231);
+}
+
+#pvsp {
+    color: rgb(37, 60, 189);
+    margin-left: auto;
+    font-size: 2em;
+}
+
+#playButton {
+    height: 7vh;
+    width: 10vw;
+    background-color: white;
+    border: 3px solid rgb(78, 101, 231);
+    border-radius: 25px;
+    color: rgb(78, 101, 231);
+    font-size: 3em;
+    font-weight: bold;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+#playButton:hover {
+    background-color: rgb(78, 101, 231);
+    color: red;
+    border: 3px solid red;
+    transition: 0.4s;
+    cursor: pointer;
+}
