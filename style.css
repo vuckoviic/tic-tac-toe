@@ -151,5 +151,20 @@ dialog button:hover {
 }
 
 #dialogPlayButton {
+    background-color: white;
+    height: 8vh;
+    width: 60%;
+    color: var(--blue);
+    border: 3px solid var(--blue);
+    font-size: 2em;
+    border-radius: 25px;
+    transform: none;
+    transition: 0.5s;
+    margin-top: 50px;
+}
+
+#dialogPlayButton:hover {
     background-color: var(--blue);
+    color: white;
+    transition: 0.5s;
 }
