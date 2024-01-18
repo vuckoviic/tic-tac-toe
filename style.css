@@ -26,11 +26,11 @@
 
 #ttt {
     font-size: 7em;
-    color: rgb(78, 101, 231);
+    color: rgb(235, 50, 50);
 }
 
 #pvsp {
-    color: rgb(37, 60, 189);
+    color: rgb(167, 25, 25);
     margin-left: auto;
     font-size: 2em;
 }
@@ -39,9 +39,9 @@
     height: 7vh;
     width: 10vw;
     background-color: white;
-    border: 3px solid rgb(78, 101, 231);
+    border: 3px solid rgb(235, 50, 50);;
     border-radius: 25px;
-    color: rgb(78, 101, 231);
+    color: rgb(235, 50, 50);;
     font-size: 3em;
     font-weight: bold;
     transition: 0.4s;
@@ -50,14 +50,14 @@
 
 #playButton:hover {
     background-color: rgb(78, 101, 231);
-    color: red;
-    border: 3px solid red;
+    color: rgb(235, 50, 50);
+    border: 3px solid rgb(78, 101, 231);
     transition: 0.4s;
     cursor: pointer;
 }
 
 .footer {
-    background-color: red;
+    background-color: rgb(235, 50, 50);
     display: flex;
     align-items: center;
     font-size: 1.4em;
@@ -83,4 +83,63 @@
     text-decoration: underline;
     font-style: italic;
     color: rgb(33, 51, 156);    
+}
+
+dialog {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 30vw;
+    color: rgb(78, 101, 231);
+    height: 80vh;
+    border-radius: 25px;
+    padding: 2%;
+    border-color: rgb(78, 101, 231);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+dialog input {
+    height: 5vh;
+    width: 80%;
+    border: 2px solid rgb(78, 101, 231);
+    border-radius: 10px;
+    font-size: 1.2em;
+    color: rgb(241, 62, 62);
+    padding: 5px;
+}
+
+dialog img {
+    height: 200px;
+    width: 200px;
+}
+
+dialog button {
+    border: none;
+    background: none;
+    margin-top: 2vh;
+    transition: 0.8s;
+    cursor: pointer;
+}
+
+dialog button:hover {
+    transform: rotate(360deg);
+    transition: 0.8s;
+}
+
+#player2name {
+    color: rgb(78, 101, 231);
+}
+
+.choose-sign {
+    display: flex;
+    gap: 30px;
 }
