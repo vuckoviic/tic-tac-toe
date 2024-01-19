@@ -6,7 +6,7 @@
 
 :root {
     --blue: rgb(78, 101, 231);
-    --red: rgb(235, 50, 50);
+    --red: rgb(248, 68, 68);
 }
 
 .container {
@@ -118,7 +118,7 @@ dialog input {
     border: 2px solid var(--blue);
     border-radius: 10px;
     font-size: 1.2em;
-    color: rgb(241, 62, 62);
+    color: var(--red);
     padding: 5px;
 }
 
@@ -167,4 +167,28 @@ dialog button:hover {
     background-color: var(--blue);
     color: white;
     transition: 0.5s;
+}
+
+.exit-dialog {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: var(--red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.exit-dialog:hover {
+    background-color: white;
+    color: var(--red);
+    transition: 0.4s;
 }
