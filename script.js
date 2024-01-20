@@ -296,11 +296,30 @@ const Player = function() {
 }
 
 const game = GameController();
-const gettingPlayerName = game.insertPlayerNames();
-gettingPlayerName(1);
-gettingPlayerName(2);
-game.chooseSign();
-game.setActivePlayer();
-game.getActivePlayer();
-game.playRound();
-console.log(game.getBoard());
+
+// const gettingPlayerName = game.insertPlayerNames();
+// gettingPlayerName(1);
+// gettingPlayerName(2);
+// game.chooseSign();
+// game.setActivePlayer();
+// game.getActivePlayer();
+// game.playRound();
+// console.log(game.getBoard());
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+const dialog = document.getElementsByTagName("dialog")[0];
+const dialogOpen = document.getElementById("playButton");
+const dialogClose = document.getElementById("exit-dialog");
+
+console.log(dialog);
+console.log(dialogOpen);
+console.log(dialogClose);
+
+dialogOpen.addEventListener("click", function (){
+    dialog.showModal();
+});
+
+dialogClose.addEventListener("click", () => {
+    dialog.close();
+});
