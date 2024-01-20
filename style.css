@@ -169,7 +169,7 @@ dialog button:hover {
     transition: 0.5s;
 }
 
-.exit-dialog {
+#exit-dialog {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -187,7 +187,7 @@ dialog button:hover {
     transition: 0.4s;
 }
 
-.exit-dialog:hover {
+#exit-dialog:hover {
     background-color: white;
     color: var(--red);
     transition: 0.4s;
