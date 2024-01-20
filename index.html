@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
 
         <button id="playButton">Play!</button>
     
-        <dialog open>
-            <div class="exit-dialog">X</div>
+        <dialog>
+            <div id="exit-dialog">X</div>
             <form action="">
 
                 <label for="player1name">Enter first player's name:</label> <br>
