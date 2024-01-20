@@ -312,10 +312,6 @@ const dialog = document.getElementsByTagName("dialog")[0];
 const dialogOpen = document.getElementById("playButton");
 const dialogClose = document.getElementById("exit-dialog");
 
-console.log(dialog);
-console.log(dialogOpen);
-console.log(dialogClose);
-
 dialogOpen.addEventListener("click", function (){
     dialog.showModal();
 });
@@ -323,3 +319,10 @@ dialogOpen.addEventListener("click", function (){
 dialogClose.addEventListener("click", () => {
     dialog.close();
 });
+
+const firstPlayersNameInput = document.getElementById("player1name");
+const player1ChooseYourSign = document.getElementById("player1ChooseYourSign");
+
+firstPlayersNameInput.addEventListener("change", () => {
+    player1ChooseYourSign.innerText = `${firstPlayersNameInput.value} choose your sign:`;
+})
