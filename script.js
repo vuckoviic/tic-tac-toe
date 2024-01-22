@@ -312,24 +312,31 @@ const dialog = document.getElementsByTagName("dialog")[0];
 const dialogOpen = document.getElementById("playButton");
 const dialogClose = document.getElementById("exit-dialog");
 
+const firstPlayersNameInput = document.getElementById("player1name");
+const secondPlayersNameInput = document.getElementById("player2name");
+const player1ChooseYourSign = document.getElementById("player1ChooseYourSign");
+
+const chooseSignButtons = document.getElementsByClassName("chooseSignButton");
+const chooseSignButton1 = chooseSignButtons[0];
+const chooseSignButton2 = chooseSignButtons[1];
+
 dialogOpen.addEventListener("click", function (){
     dialog.showModal();
 });
 
 dialogClose.addEventListener("click", () => {
     dialog.close();
+    firstPlayersNameInput.value = "";
+    secondPlayersNameInput.value = "";
+    chooseSignButton1.classList.remove("selected-sign");
+    chooseSignButton2.classList.remove("selected-sign");
+    chooseSignButton1.classList.add("not-selected-sign");
+    chooseSignButton2.classList.add("not-selected-sign");
 });
-
-const firstPlayersNameInput = document.getElementById("player1name");
-const player1ChooseYourSign = document.getElementById("player1ChooseYourSign");
 
 firstPlayersNameInput.addEventListener("change", () => {
     player1ChooseYourSign.innerText = `${firstPlayersNameInput.value} choose your sign:`;
 })
-
-const chooseSignButtons = document.getElementsByClassName("chooseSignButton");
-const chooseSignButton1 = chooseSignButtons[0];
-const chooseSignButton2 = chooseSignButtons[1];
 
 chooseSignButton1.addEventListener("click", () => {
     if (chooseSignButton2.classList.contains("selected-sign")) {
