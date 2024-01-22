@@ -206,9 +206,16 @@ dialog button:hover {
 
 .game-main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+.game-main p {
+    font-size: 2.5em;
+    position: relative;
+    bottom: 15vh;
 }
 
 .table {
@@ -221,4 +228,15 @@ dialog button:hover {
 
 .table-cell {
     border: 1px solid black;
+}
+
+.game-main img {
+    height: 20vh;
+}
+
+.signs-and-table {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
