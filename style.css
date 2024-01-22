@@ -203,3 +203,22 @@ dialog button:hover {
 .not-selected-sign {
     filter: grayscale(100%);
 }
+
+.game-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 500px;
+    width: 500px;
+}
+
+.table-cell {
+    border: 1px solid black;
+}
