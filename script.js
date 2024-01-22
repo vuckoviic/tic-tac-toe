@@ -326,3 +326,37 @@ const player1ChooseYourSign = document.getElementById("player1ChooseYourSign");
 firstPlayersNameInput.addEventListener("change", () => {
     player1ChooseYourSign.innerText = `${firstPlayersNameInput.value} choose your sign:`;
 })
+
+const chooseSignButtons = document.getElementsByClassName("chooseSignButton");
+const chooseSignButton1 = chooseSignButtons[0];
+const chooseSignButton2 = chooseSignButtons[1];
+
+chooseSignButton1.addEventListener("click", () => {
+    if (chooseSignButton2.classList.contains("selected-sign")) {
+        chooseSignButton2.classList.remove("selected-sign");
+        chooseSignButton2.classList.add("not-selected-sign");
+        chooseSignButton1.classList.remove("not-selected-sign");
+        chooseSignButton1.classList.add("selected-sign");
+    }
+
+    else if (chooseSignButton1.classList.contains("not-selected-sign")) {
+        chooseSignButton1.classList.remove("not-selected-sign");
+        chooseSignButton1.classList.add("selected-sign");
+    }
+    console.log(chooseSignButton1.classList);
+});
+
+chooseSignButton2.addEventListener("click", () => {
+    if (chooseSignButton1.classList.contains("selected-sign")) {
+        chooseSignButton1.classList.remove("selected-sign");
+        chooseSignButton1.classList.add("not-selected-sign");
+        chooseSignButton2.classList.remove("not-selected-sign");
+        chooseSignButton2.classList.add("selected-sign");
+    }
+
+    else if (chooseSignButton2.classList.contains("not-selected-sign")) {
+        chooseSignButton2.classList.remove("not-selected-sign");
+        chooseSignButton2.classList.add("selected-sign");
+    }
+    console.log(chooseSignButton2.classList);
+});
