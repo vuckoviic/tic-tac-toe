@@ -77,6 +77,8 @@
 
 .footer img {
     height: 1.5em;
+    position: relative;
+    top: 3px;
 }
 
 .footer a {
