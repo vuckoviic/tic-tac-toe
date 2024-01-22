@@ -154,7 +154,7 @@ dialog button:hover {
 #dialogPlayButton {
     background-color: white;
     height: 8vh;
-    width: 60%;
+    width: 120%;
     color: var(--blue);
     border: 3px solid var(--blue);
     font-size: 2em;
