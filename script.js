@@ -163,9 +163,9 @@ const Player = function() {
 
     const insertPlayerNames = function() {
         const player1 = {};
-        player1.name = prompt("Insert player one's name: ");
+        player1.name = document.querySelector("#player1name").value;
         const player2 = {};
-        player2.name = prompt("Insert player two's name: ");
+        player2.name = document.querySelector("#player2name").value;
 
         players.push(player1);
         players.push(player2);
@@ -309,7 +309,6 @@ const game = GameController();
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 const dialog = document.getElementsByTagName("dialog")[0];
-const dialogOpen = document.getElementById("playButton");
 const dialogClose = document.getElementById("exit-dialog");
 
 const firstPlayersNameInput = document.getElementById("player1name");
@@ -320,8 +319,13 @@ const chooseSignButtons = document.getElementsByClassName("chooseSignButton");
 const chooseSignButton1 = chooseSignButtons[0];
 const chooseSignButton2 = chooseSignButtons[1];
 
-dialogOpen.addEventListener("click", function (){
-    dialog.showModal();
+const dialogPlayButton = document.getElementById("dialogPlayButton");
+
+dialogPlayButton.addEventListener('click', () => {
+    const settingPlayerNames = game.insertPlayerNames();
+    console.log(settingPlayerNames(1));
+    console.log(settingPlayerNames(2));
+    dialog.close();
 });
 
 dialogClose.addEventListener("click", () => {
@@ -332,6 +336,7 @@ dialogClose.addEventListener("click", () => {
     chooseSignButton2.classList.remove("selected-sign");
     chooseSignButton1.classList.add("not-selected-sign");
     chooseSignButton2.classList.add("not-selected-sign");
+    location.replace("index.html")
 });
 
 firstPlayersNameInput.addEventListener("change", () => {
@@ -367,3 +372,18 @@ chooseSignButton2.addEventListener("click", () => {
     }
     console.log(chooseSignButton2.classList);
 });
+
+const ScreenController = function() {
+    
+    const updateScreen = function() {
+
+    }
+    const clickHandlerBoard = function() {
+
+    }
+
+    return {
+        updateScreen,
+        clickHandlerBoard
+    }
+}
