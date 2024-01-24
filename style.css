@@ -156,7 +156,7 @@ dialog button:hover {
 #dialogPlayButton {
     background-color: white;
     height: 8vh;
-    width: 120%;
+    width: 80%;
     color: var(--blue);
     border: 3px solid var(--blue);
     font-size: 2em;
@@ -213,9 +213,7 @@ dialog button:hover {
 }
 
 .game-main p {
-    font-size: 2.5em;
-    position: relative;
-    bottom: 15vh;
+    font-size: 1.2em;
 }
 
 .table {
