@@ -14,7 +14,28 @@
 
     <div class="game-container">
         <div class="game-main">
-            <p>Aleksa's turn</p>
+            <dialog open>
+                <div id="exit-dialog">X</div>
+                <form action="">
+    
+                    <label for="player1name">Enter first player's name:</label> <br>
+                    <input type="text" id="player1name"> <br>
+                    <label for="player2name">Enter second player's name:</label> <br>
+                    <input type="text" id="player2name">
+    
+                    <p id="player1ChooseYourSign"></p>
+                    <div class="choose-sign">
+                        <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/x.png" alt=""></button>
+                        <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/o.png" alt=""></button>
+                    </div>
+    
+                    <button id="dialogPlayButton" class="dialogButton" type="button">Play!</button>
+    
+                </form>
+            </dialog>
+
+
+            <!-- <p>Aleksa's turn</p>
             <div class="signs-and-table">
                 <img src="images/x.png" alt="">
                 <div class="table">
@@ -29,7 +50,7 @@
                     <div class="table-cell 33"></div>
                 </div>
                 <img src="images/o.png" alt="">
-            </div>
+            </div> -->
         </div>
 
         <div class="footer">
