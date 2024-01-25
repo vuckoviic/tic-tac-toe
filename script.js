@@ -187,16 +187,13 @@ const Player = function() {
     let player1sign;
    
     const chooseSign = function() {
-
-        player1sign = prompt(`${players[0].name} choose your sign: `);
         
-        if (player1sign === "X" || player1sign === "O" || player1sign === "x" || player1sign === "o") {
-            players[0].sign = player1sign;
-            players[0].sign = players[0].sign.toUpperCase();
+        if (radioButtons[0].checked === true) {
+            players[0].sign = "X";
         }
 
-        else {
-            checkSign();
+        else if (radioButtons[1].checked === true) {
+            players[0].sign = "O";
         }
 
         if (players[0].sign === "X" || players[0].sign === "x") {
@@ -208,11 +205,6 @@ const Player = function() {
 
         console.log(`${getPlayerName(1)} has a sign ${getPlayerSign(1)}`);
         console.log(`${getPlayerName(2)} has a sign ${getPlayerSign(2)}`);
-
-        function checkSign() {
-            alert("ERROR! Invalid input! Try again:");
-            chooseSign();
-        }
 
         function getPlayerName(player) {
             if (player === 1) {
@@ -328,11 +320,14 @@ dialogPlayButton.addEventListener('click', () => {
     if (firstPlayersNameInput.value.length < 1 || secondPlayersNameInput.value.length < 1 || !radioButtons[0].checked && !radioButtons[1].checked) {
         return false;
     }
-
+// ACTUAL GAME IS PLAYED FROM BELOVE!!!
     else {
         const settingPlayerNames = game.insertPlayerNames();
         console.log(settingPlayerNames(1));
         console.log(settingPlayerNames(2));
+        const settingPlayerSigns = game.chooseSign();
+        console.log(settingPlayerSigns(1));
+        console.log(settingPlayerSigns(2));
         dialog.close();
         return true;
     }
