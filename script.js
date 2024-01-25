@@ -326,16 +326,9 @@ dialogPlayButton.addEventListener('click', () => {
         player1ChooseYourSign.style.transition = "0.5s";
         return false;
     }
-    
-// ACTUAL GAME IS PLAYED FROM BELOVE!!!
+
     else {
-        // umesto ovoga svega, da se samo prosto pokrene neka f-ja ce da prikupi podatke (nalazice se negde dole)
-        const settingPlayerNames = game.insertPlayerNames();
-        console.log(settingPlayerNames(1));
-        console.log(settingPlayerNames(2));
-        const settingPlayerSigns = game.chooseSign();
-        console.log(settingPlayerSigns(1));
-        console.log(settingPlayerSigns(2));
+        gatherNamesAndSigns();
         dialog.close();
         return true;
     }
@@ -404,4 +397,13 @@ const ScreenController = function() {
         updateScreen,
         clickHandlerBoard
     }
+}
+
+function gatherNamesAndSigns() {
+    const settingPlayerNames = game.insertPlayerNames();
+    console.log(settingPlayerNames(1));
+    console.log(settingPlayerNames(2));
+    const settingPlayerSigns = game.chooseSign();
+    console.log(settingPlayerSigns(1));
+    console.log(settingPlayerSigns(2));
 }
