@@ -317,11 +317,19 @@ const radioButtons = document.querySelectorAll('[type="radio"]');
 
 dialogPlayButton.addEventListener('click', () => {
     
-    if (firstPlayersNameInput.value.length < 1 || secondPlayersNameInput.value.length < 1 || !radioButtons[0].checked && !radioButtons[1].checked) {
+    if (firstPlayersNameInput.value.length < 1 || secondPlayersNameInput.value.length < 1) {
         return false;
     }
+
+    if (!radioButtons[0].checked && !radioButtons[1].checked) {
+        player1ChooseYourSign.style.color = "red";
+        player1ChooseYourSign.style.transition = "0.5s";
+        return false;
+    }
+    
 // ACTUAL GAME IS PLAYED FROM BELOVE!!!
     else {
+        // umesto ovoga svega, da se samo prosto pokrene neka f-ja ce da prikupi podatke (nalazice se negde dole)
         const settingPlayerNames = game.insertPlayerNames();
         console.log(settingPlayerNames(1));
         console.log(settingPlayerNames(2));
