@@ -321,9 +321,11 @@ const chooseSignButton2 = chooseSignButtons[1];
 
 const dialogPlayButton = document.getElementById("dialogPlayButton");
 
+const radioButtons = document.querySelectorAll('[type="radio"]');
+
 dialogPlayButton.addEventListener('click', () => {
     
-    if (firstPlayersNameInput.value.length < 1 || secondPlayersNameInput.value.length < 1) {
+    if (firstPlayersNameInput.value.length < 1 || secondPlayersNameInput.value.length < 1 || !radioButtons[0].checked && !radioButtons[1].checked) {
         return false;
     }
 

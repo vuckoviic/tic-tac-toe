@@ -130,7 +130,20 @@ dialog img {
     width: 200px;
 }
 
-dialog button {
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+[type=radio] + img {
+    cursor: pointer;
+}
+
+
+.dialogButton {
     border: none;
     background: none;
     margin-top: 2vh;
@@ -138,7 +151,7 @@ dialog button {
     cursor: pointer;
 }
 
-dialog button:hover {
+.dialogButton:hover {
     transform: rotate(360deg);
     transition: 0.8s;
 }

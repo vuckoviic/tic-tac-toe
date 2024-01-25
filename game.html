@@ -25,8 +25,18 @@
     
                     <p id="player1ChooseYourSign"></p>
                     <div class="choose-sign">
-                        <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/x.png" alt=""></button>
-                        <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/o.png" alt=""></button>
+                        <label>
+                            <input type="radio" name="choose_sign" value="X" required>
+                            <img class="dialogButton chooseSignButton not-selected-sign" src="images/x.png" alt="Option X">
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="choose_sign" value="O" required>
+                            <img class="dialogButton chooseSignButton not-selected-sign" src="images/o.png" alt="Option O">
+                        </label>
+
+                        <!-- <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/x.png" alt=""></button> -->
+                        <!-- <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/o.png" alt=""></button> -->
                     </div>
     
                     <button id="dialogPlayButton" class="dialogButton" type="submit">Play!</button>
