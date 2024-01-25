@@ -322,10 +322,18 @@ const chooseSignButton2 = chooseSignButtons[1];
 const dialogPlayButton = document.getElementById("dialogPlayButton");
 
 dialogPlayButton.addEventListener('click', () => {
-    const settingPlayerNames = game.insertPlayerNames();
-    console.log(settingPlayerNames(1));
-    console.log(settingPlayerNames(2));
-    dialog.close();
+    
+    if (firstPlayersNameInput.value.length < 1 || secondPlayersNameInput.value.length < 1) {
+        return false;
+    }
+
+    else {
+        const settingPlayerNames = game.insertPlayerNames();
+        console.log(settingPlayerNames(1));
+        console.log(settingPlayerNames(2));
+        dialog.close();
+        return true;
+    }
 });
 
 dialogClose.addEventListener("click", () => {
@@ -371,6 +379,11 @@ chooseSignButton2.addEventListener("click", () => {
         chooseSignButton2.classList.add("selected-sign");
     }
     console.log(chooseSignButton2.classList);
+});
+
+const form = document.querySelector("form");
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
 });
 
 const ScreenController = function() {

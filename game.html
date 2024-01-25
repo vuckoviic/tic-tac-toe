@@ -19,9 +19,9 @@
                 <form action="">
     
                     <label for="player1name">Enter first player's name:</label> <br>
-                    <input type="text" id="player1name"> <br>
+                    <input type="text" id="player1name" required> <br>
                     <label for="player2name">Enter second player's name:</label> <br>
-                    <input type="text" id="player2name">
+                    <input type="text" id="player2name" required>
     
                     <p id="player1ChooseYourSign"></p>
                     <div class="choose-sign">
@@ -29,7 +29,7 @@
                         <button class="dialogButton chooseSignButton not-selected-sign" type="button"><img src="images/o.png" alt=""></button>
                     </div>
     
-                    <button id="dialogPlayButton" class="dialogButton" type="button">Play!</button>
+                    <button id="dialogPlayButton" class="dialogButton" type="submit">Play!</button>
     
                 </form>
             </dialog>
