@@ -10,20 +10,17 @@ const Gameboard = (function() {
         }
     }
 
-    const drawSign = function(activePlayer) {
-        console.log(`${activePlayer.name}'s turn. He / she is controlling ${activePlayer.sign}`);
-        drawingSignRow = prompt(`${activePlayer.name} please insert table row:`);
-        drawingSignRow = parseInt(drawingSignRow);
+    const drawSign = function(activePlayer, drawingSignColumn, drawingSignRow) {
         
-        drawingSignColumn = prompt(`${activePlayer.name} please insert table column: `);
+        drawingSignRow = parseInt(drawingSignRow);
         drawingSignColumn = parseInt(drawingSignColumn);
 
-        if (board[drawingSignRow-1][drawingSignColumn-1].taken === true) {
-            alert("That field is already taken! Try again:");
-            drawSign(activePlayer);
-        }
+        // if (board[drawingSignRow-1][drawingSignColumn-1].taken === true) {
+        //     alert("That field is already taken! Try again:");
+
+        // }
         
-        else {
+        // else {
             board[drawingSignRow-1][drawingSignColumn-1].taken = true;
             board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
             
@@ -31,7 +28,7 @@ const Gameboard = (function() {
             console.log(board[drawingSignRow-1][drawingSignColumn-1].taken);
             console.log(board[drawingSignRow-1][drawingSignColumn-1].sign);   
             console.log(getBoard());
-        }
+        // }
     }
 
     const getBoard = function() {
@@ -136,11 +133,26 @@ const GameController = function() {
     const { drawSign, getBoard, checkForEnd, checkForWinner } = Gameboard;
 
     const playRound = function() {
-        let activePlayer = getActivePlayer();
-        drawSign(activePlayer);
-        checkForEnd();
-        console.log(checkForEnd());
-        activePlayer = changeActivePlayer();
+        const tableCells = document.querySelectorAll(".table-cell");
+
+        let cellClicked = false;
+
+        for (let i = 0; i < tableCells.length; i++) {
+            tableCells[i].addEventListener("click", function(event) {
+                const drawingSignRow = event.target.getAttribute("data-row");
+                const drawingSignColumn = event.target.getAttribute("data-column");
+                playRounddd(getActivePlayer(), drawingSignColumn, drawingSignRow);
+                console.log(game.getActivePlayer().name, drawingSignColumn, drawingSignRow);
+                cellClicked = true;
+            });
+        }
+
+        function playRounddd (activePlayer, drawingSignColumn, drawingSignRow) {
+            console.log("cell is clicked, drawing sign")
+            drawSign(activePlayer, drawingSignColumn, drawingSignRow);
+            console.log(checkForEnd());
+            activePlayer = changeActivePlayer();
+        }
     }
     
     return { 
