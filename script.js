@@ -342,7 +342,6 @@ dialogPlayButton.addEventListener('click', () => {
     else {
         gatherNamesAndSigns();
         dialog.close();
-        playGame();
         return true;
     }
 });
@@ -419,10 +418,4 @@ function gatherNamesAndSigns() {
     const settingPlayerSigns = game.chooseSign();
     console.log(settingPlayerSigns(1));
     console.log(settingPlayerSigns(2));
-}
-
-function playGame() {
-    game.setActivePlayer();
-    game.getActivePlayer();
-    game.playRound();
 }
