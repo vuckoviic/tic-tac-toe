@@ -251,3 +251,30 @@ dialog img {
     align-items: center;
     width: 100%;
 }
+
+.table-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-cell img {
+    height: 80%;
+    width: 80%;
+}
+
+.left-cell {
+    border-left: 2px solid black;
+}
+
+.right-cell {
+    border-right: 2px solid black;
+}
+
+.up-cell {
+    border-top: 2px solid black;
+}
+
+.down-cell {
+    border-bottom: 2px solid black;
+}
