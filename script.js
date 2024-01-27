@@ -10,13 +10,13 @@ const Gameboard = (function() {
         }
     }
 
-    const drawSign = function(activePlayer) {
+    const drawSign = function(activePlayer, drawingSignColumn, drawingSignRow) {
         console.log(`${activePlayer.name}'s turn. He / she is controlling ${activePlayer.sign}`);
-        drawingSignRow = prompt(`${activePlayer.name} please insert table row:`);
         drawingSignRow = parseInt(drawingSignRow);
         
-        drawingSignColumn = prompt(`${activePlayer.name} please insert table column: `);
         drawingSignColumn = parseInt(drawingSignColumn);
+
+        console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
 
         if (board[drawingSignRow-1][drawingSignColumn-1].taken === true) {
             alert("That field is already taken! Try again:");
@@ -135,10 +135,12 @@ const GameController = function() {
 
     const { drawSign, getBoard, checkForEnd, checkForWinner } = Gameboard;
 
-    const playRound = function() {
+    const playRound = function(drawingSignColumn, drawingSignRow) {
         let activePlayer = getActivePlayer();
-        drawSign(activePlayer);
-        checkForEnd();
+        drawingSignColumn = drawingSignColumn;
+        drawingSignRow = drawingSignRow;
+        console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
+        drawSign(activePlayer, drawingSignColumn, drawingSignRow);
         console.log(checkForEnd());
         activePlayer = changeActivePlayer();
     }
@@ -272,7 +274,7 @@ const Player = function() {
         }
 
         else {
-            game.playRound();
+            game.playRound(game.getActivePlayer(), drawingSignColumn, drawingSignRow);
         }
         
         return activePlayer;
@@ -288,15 +290,6 @@ const Player = function() {
 }
 
 const game = GameController();
-
-// const gettingPlayerName = game.insertPlayerNames();
-// gettingPlayerName(1);
-// gettingPlayerName(2);
-// game.chooseSign();
-// game.setActivePlayer();
-// game.getActivePlayer();
-// game.playRound();
-// console.log(game.getBoard());
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -409,8 +402,18 @@ function gatherNamesAndSigns() {
     console.log(settingPlayerSigns(2));
 }
 
-function playGame() {
+function playGame() { // maybe I should put this inside GameController 
     game.setActivePlayer();
     game.getActivePlayer();
-    game.playRound();
+
+    const tableCells = document.querySelectorAll(".table-cell");
+
+    for (let i = 0; i < tableCells.length; i++) {
+        tableCells[i].addEventListener("click", function(event) {
+            const drawingSignRow = event.target.getAttribute("data-row");
+            const drawingSignColumn = event.target.getAttribute("data-column");
+            game.playRound(drawingSignColumn, drawingSignRow);
+            console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
+        });
+    }
 }
