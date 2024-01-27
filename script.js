@@ -274,7 +274,7 @@ const Player = function() {
         }
 
         else {
-            game.playRound(game.getActivePlayer(), drawingSignColumn, drawingSignRow);
+            game.playRound();
         }
         
         return activePlayer;
@@ -412,6 +412,14 @@ function playGame() { // maybe I should put this inside GameController
         tableCells[i].addEventListener("click", function(event) {
             const drawingSignRow = event.target.getAttribute("data-row");
             const drawingSignColumn = event.target.getAttribute("data-column");
+            const img = document.createElement("img");
+            if (game.getActivePlayer().sign === "X") {
+                img.setAttribute("src", "images/x.png")
+            }
+            else {
+                img.setAttribute("src", "images/o.png")
+            }
+            event.target.appendChild(img);
             game.playRound(drawingSignColumn, drawingSignRow);
             console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
         });
