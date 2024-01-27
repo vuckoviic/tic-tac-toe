@@ -236,6 +236,7 @@ const Player = function() {
                 activePlayer = players[i];
             }
         }
+        informationalP.innerText = `${activePlayer.name}'s turn`
         return activePlayer;
     }
 
@@ -253,9 +254,12 @@ const Player = function() {
         else {
             activePlayer = players[0];
         }
+
+        informationalP.innerText = `${activePlayer.name}'s turn`
         
         if (game.checkForEnd() === true) {
             console.log("It's a tie!");
+            informationalP.innerText = "It's a tie!";
         }
         
         else if (game.checkForWinner() === "X" || game.checkForWinner() === "O") {
@@ -271,6 +275,7 @@ const Player = function() {
             }
         
             console.log(`Winner is ${winner.name}. His sign is ${game.checkForWinner()}`);
+            informationalP.innerText = `Winner is ${winner.name}. His sign is ${game.checkForWinner()}`;
         }
 
         else {
@@ -307,6 +312,8 @@ const chooseSignButton2 = chooseSignButtons[1];
 const dialogPlayButton = document.getElementById("dialogPlayButton");
 
 const radioButtons = document.querySelectorAll('[type="radio"]');
+
+const informationalP = document.getElementById("informationalP");
 
 dialogPlayButton.addEventListener('click', () => {
     
