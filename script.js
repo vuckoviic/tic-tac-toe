@@ -19,7 +19,7 @@ const Gameboard = (function() {
         console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
 
         if (board[drawingSignRow-1][drawingSignColumn-1].taken === true) {
-            alert("That field is already taken! Try again:");
+            informationalP.innerHTML = "That field is already taken! Try again";
             drawSign(activePlayer);
         }
         
@@ -276,6 +276,23 @@ const Player = function() {
         
             console.log(`Winner is ${winner.name}. His sign is ${game.checkForWinner()}`);
             informationalP.innerText = `Winner is ${winner.name}. His sign is ${game.checkForWinner()}`;
+            
+            const tableCells = document.querySelector(".table-cell");
+
+            tableCells[i].removeEventListener("click", function(event) {
+                const drawingSignRow = event.target.getAttribute("data-row");
+                const drawingSignColumn = event.target.getAttribute("data-column");
+                const img = document.createElement("img");
+                if (game.getActivePlayer().sign === "X") {
+                    img.setAttribute("src", "images/x.png")
+                }
+                else {
+                    img.setAttribute("src", "images/o.png")
+                }
+                event.target.appendChild(img);
+                game.playRound(drawingSignColumn, drawingSignRow);
+                console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
+            });
         }
 
         else {
