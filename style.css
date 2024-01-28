@@ -285,3 +285,69 @@ dialog img {
     position: relative;
     bottom: 5px;
 }
+
+.endGameDialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30vw;
+    color: var(--blue);
+    height: 40vh;
+    border-radius: 25px;
+    padding: 2%;
+    border-color: var(--blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2em;
+    text-align: center;
+    gap: 15px;
+}
+
+.endGameDialog button {
+    width: 60%;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#playAgainButton {
+    color: var(--blue);
+    background-color: white;
+    border: 2px solid var(--blue);
+    transition: 0.5s;
+}
+
+#playAgainButton:hover {
+    color: white;
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    transition: 0.5s;
+}
+
+#homeScreenButton {
+    width: 150%;
+    color: var(--red);
+    background-color: white;
+    border: 2px solid var(--red);
+    transition: 0.5s;
+}
+
+#homeScreenButton:hover {
+    color: white;
+    background-color: var(--red);
+    border: 2px solid var(--red);
+    transition: 0.5s;
+}
+
+.endGameDialog a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 60%;
+}
