@@ -256,6 +256,7 @@ dialog img {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: none;
 }
 
 .table-cell img {
@@ -277,4 +278,10 @@ dialog img {
 
 .down-cell {
     border-bottom: 2px solid black;
+}
+
+#informationalP {
+    font-size: 2em;
+    position: relative;
+    bottom: 5px;
 }
