@@ -269,8 +269,8 @@ const Player = function() {
             const aTag = document.createElement("a");
             aTag.setAttribute("href", "index.html");
 
-            aTag.innerText = "Play Again";
-            homeScreenButton.innerText = "Home Screen";
+            aTag.innerText = "Home Screen";
+            playAgainButton.innerText = "Play Again";
 
             playAgainButton.classList.add("playAgainButton");
             homeScreenButton.classList.add("homeScreenButton");
@@ -313,9 +313,9 @@ const Player = function() {
 
             const aTag = document.createElement("a");
             aTag.setAttribute("href", "index.html");
-
-            aTag.innerText = "Play Again";
-            homeScreenButton.innerText = "Home Screen";
+            
+            aTag.innerText = "Home Screen";
+            playAgainButton.innerText = "Play Again";
 
             playAgainButton.classList.add("playAgainButton");
             homeScreenButton.classList.add("homeScreenButton");
