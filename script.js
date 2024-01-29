@@ -276,23 +276,6 @@ const Player = function() {
         
             console.log(`Winner is ${winner.name}. His sign is ${game.checkForWinner()}`);
             informationalP.innerText = `Winner is ${winner.name}. His sign is ${game.checkForWinner()}`;
-            
-            const tableCells = document.querySelector(".table-cell");
-
-            tableCells[i].removeEventListener("click", function(event) {
-                const drawingSignRow = event.target.getAttribute("data-row");
-                const drawingSignColumn = event.target.getAttribute("data-column");
-                const img = document.createElement("img");
-                if (game.getActivePlayer().sign === "X") {
-                    img.setAttribute("src", "images/x.png")
-                }
-                else {
-                    img.setAttribute("src", "images/o.png")
-                }
-                event.target.appendChild(img);
-                game.playRound(drawingSignColumn, drawingSignRow);
-                console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
-            });
         }
 
         else {
@@ -433,15 +416,15 @@ function playGame() { // maybe I should put this inside GameController
     const tableCells = document.querySelectorAll(".table-cell");
 
     for (let i = 0; i < tableCells.length; i++) {
-        tableCells[i].addEventListener("click", function(event) {
+        tableCells[i].addEventListener("click", function targetCell (event) {
             const drawingSignRow = event.target.getAttribute("data-row");
             const drawingSignColumn = event.target.getAttribute("data-column");
             const img = document.createElement("img");
             if (game.getActivePlayer().sign === "X") {
-                img.setAttribute("src", "images/x.png")
+                img.setAttribute("src", "images/x.png");
             }
             else {
-                img.setAttribute("src", "images/o.png")
+                img.setAttribute("src", "images/o.png");
             }
             event.target.appendChild(img);
             game.playRound(drawingSignColumn, drawingSignRow);
