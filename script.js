@@ -427,6 +427,7 @@ function playGame() { // maybe I should put this inside GameController
                 img.setAttribute("src", "images/o.png");
             }
             event.target.appendChild(img);
+            event.target.disabled = true;
             game.playRound(drawingSignColumn, drawingSignRow);
             console.log(`ERROR ANALASYS: ${drawingSignRow} ${drawingSignColumn}`);
         });
