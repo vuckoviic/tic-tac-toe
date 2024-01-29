@@ -260,14 +260,17 @@ const Player = function() {
         if (game.checkForEnd() === true) {
             console.log("It's a tie!");
             informationalP.innerText = "It's a tie!";
-            
+
             const playAgainButton = document.createElement("button");
             const homeScreenButton = document.createElement("button");
 
             const gameMain = document.querySelector(".game-main");
 
-            playAgainButton.innerText = "Play Again!";
+            playAgainButton.innerText = "Play Again";
             homeScreenButton.innerText = "Home Screen";
+
+            playAgainButton.classList.add("playAgainButton");
+            homeScreenButton.classList.add("homeScreenButton");
 
             gameMain.appendChild(playAgainButton);
             gameMain.appendChild(homeScreenButton);
@@ -298,9 +301,12 @@ const Player = function() {
             const playAgainButton = document.createElement("button");
             const homeScreenButton = document.createElement("button");
 
+            playAgainButton.classList.add("playAgainButton");
+            homeScreenButton.classList.add("homeScreenButton");
+
             const gameMain = document.querySelector(".game-main");
 
-            playAgainButton.innerText = "Play Again!";
+            playAgainButton.innerText = "Play Again";
             homeScreenButton.innerText = "Home Screen";
 
             gameMain.appendChild(playAgainButton);
