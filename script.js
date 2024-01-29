@@ -266,11 +266,19 @@ const Player = function() {
 
             const gameMain = document.querySelector(".game-main");
 
-            playAgainButton.innerText = "Play Again";
+            const aTag = document.createElement("a");
+            aTag.setAttribute("href", "index.html");
+
+            aTag.innerText = "Play Again";
             homeScreenButton.innerText = "Home Screen";
 
             playAgainButton.classList.add("playAgainButton");
             homeScreenButton.classList.add("homeScreenButton");
+
+            homeScreenButton.appendChild(aTag);
+
+            aTag.style.textDecoration = "none";
+            aTag.style.color = "white";
 
             gameMain.appendChild(playAgainButton);
             gameMain.appendChild(homeScreenButton);
@@ -301,13 +309,21 @@ const Player = function() {
             const playAgainButton = document.createElement("button");
             const homeScreenButton = document.createElement("button");
 
+            const gameMain = document.querySelector(".game-main");
+
+            const aTag = document.createElement("a");
+            aTag.setAttribute("href", "index.html");
+
+            aTag.innerText = "Play Again";
+            homeScreenButton.innerText = "Home Screen";
+
             playAgainButton.classList.add("playAgainButton");
             homeScreenButton.classList.add("homeScreenButton");
 
-            const gameMain = document.querySelector(".game-main");
+            homeScreenButton.appendChild(aTag);
 
-            playAgainButton.innerText = "Play Again";
-            homeScreenButton.innerText = "Home Screen";
+            aTag.style.textDecoration = "none";
+            aTag.style.color = "white";
 
             gameMain.appendChild(playAgainButton);
             gameMain.appendChild(homeScreenButton);
