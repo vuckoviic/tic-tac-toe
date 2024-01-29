@@ -23,15 +23,15 @@ const Gameboard = (function() {
             drawSign(activePlayer);
         }
         
-        else {
-            board[drawingSignRow-1][drawingSignColumn-1].taken = true;
-            board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
-            
-            console.log(typeof(board[drawingSignRow-1][drawingSignColumn-1]));
-            console.log(board[drawingSignRow-1][drawingSignColumn-1].taken);
-            console.log(board[drawingSignRow-1][drawingSignColumn-1].sign);   
-            console.log(getBoard());
-        }
+        
+        board[drawingSignRow-1][drawingSignColumn-1].taken = true;
+        board[drawingSignRow-1][drawingSignColumn-1].sign = activePlayer.sign; 
+        
+        console.log(typeof(board[drawingSignRow-1][drawingSignColumn-1]));
+        console.log(board[drawingSignRow-1][drawingSignColumn-1].taken);
+        console.log(board[drawingSignRow-1][drawingSignColumn-1].sign);   
+        console.log(getBoard());
+        
     }
 
     const getBoard = function() {
@@ -272,6 +272,13 @@ const Player = function() {
                 if (players[i].sign === game.checkForWinner()) {
                     winner = players[i];
                 }
+            }
+
+            const tableCells = document.querySelectorAll(".table-cell");
+
+            for (let i = 0; i < tableCells.length; i++) {
+                tableCells[i].disabled = true;
+                console.log("Table cell "+i+" disabled");
             }
         
             console.log(`Winner is ${winner.name}. His sign is ${game.checkForWinner()}`);
