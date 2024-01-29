@@ -370,17 +370,3 @@ dialog img {
 .homeScreenButton {
     background-color: var(--red);
 }
-
-.playAgainButton:hover {
-    color: var(--blue);
-    background-color: white;
-    border: 2px solid var(--blue);
-    transition: 0.5s;
-}
-
-.homeScreenButton:hover {
-    color: var(--red);
-    background-color: white;
-    border: 2px solid var(--red);
-    transition: 0.5s;
-}
