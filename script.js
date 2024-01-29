@@ -260,6 +260,17 @@ const Player = function() {
         if (game.checkForEnd() === true) {
             console.log("It's a tie!");
             informationalP.innerText = "It's a tie!";
+            
+            const playAgainButton = document.createElement("button");
+            const homeScreenButton = document.createElement("button");
+
+            const gameMain = document.querySelector(".game-main");
+
+            playAgainButton.innerText = "Play Again!";
+            homeScreenButton.innerText = "Home Screen";
+
+            gameMain.appendChild(playAgainButton);
+            gameMain.appendChild(homeScreenButton);
         }
         
         else if (game.checkForWinner() === "X" || game.checkForWinner() === "O") {
@@ -283,6 +294,18 @@ const Player = function() {
         
             console.log(`Winner is ${winner.name}. His sign is ${game.checkForWinner()}`);
             informationalP.innerText = `Winner is ${winner.name}. His sign is ${game.checkForWinner()}`;
+            
+            const playAgainButton = document.createElement("button");
+            const homeScreenButton = document.createElement("button");
+
+            const gameMain = document.querySelector(".game-main");
+
+            playAgainButton.innerText = "Play Again!";
+            homeScreenButton.innerText = "Home Screen";
+
+            gameMain.appendChild(playAgainButton);
+            gameMain.appendChild(homeScreenButton);
+
         }
 
         else {
