@@ -257,34 +257,7 @@ const Player = function() {
 
         informationalP.innerText = `${activePlayer.name}'s turn`
         
-        if (game.checkForEnd() === true) {
-            console.log("It's a tie!");
-            informationalP.innerText = "It's a tie!";
-
-            const playAgainButton = document.createElement("button");
-            const homeScreenButton = document.createElement("button");
-
-            const gameMain = document.querySelector(".game-main");
-
-            const aTag = document.createElement("a");
-            aTag.setAttribute("href", "index.html");
-
-            aTag.innerText = "Home Screen";
-            playAgainButton.innerText = "Play Again";
-
-            playAgainButton.classList.add("playAgainButton");
-            homeScreenButton.classList.add("homeScreenButton");
-
-            homeScreenButton.appendChild(aTag);
-
-            aTag.style.textDecoration = "none";
-            aTag.style.color = "white";
-
-            gameMain.appendChild(playAgainButton);
-            gameMain.appendChild(homeScreenButton);
-        }
-        
-        else if (game.checkForWinner() === "X" || game.checkForWinner() === "O") {
+        if (game.checkForWinner() === "X" || game.checkForWinner() === "O") {
             
             console.log("We have a winner! Game over!!!");
             
@@ -328,6 +301,33 @@ const Player = function() {
             gameMain.appendChild(playAgainButton);
             gameMain.appendChild(homeScreenButton);
 
+        }
+
+        else if (game.checkForEnd() === true) {
+            console.log("It's a tie!");
+            informationalP.innerText = "It's a tie!";
+
+            const playAgainButton = document.createElement("button");
+            const homeScreenButton = document.createElement("button");
+
+            const gameMain = document.querySelector(".game-main");
+
+            const aTag = document.createElement("a");
+            aTag.setAttribute("href", "index.html");
+
+            aTag.innerText = "Home Screen";
+            playAgainButton.innerText = "Play Again";
+
+            playAgainButton.classList.add("playAgainButton");
+            homeScreenButton.classList.add("homeScreenButton");
+
+            homeScreenButton.appendChild(aTag);
+
+            aTag.style.textDecoration = "none";
+            aTag.style.color = "white";
+
+            gameMain.appendChild(playAgainButton);
+            gameMain.appendChild(homeScreenButton);
         }
 
         else {
